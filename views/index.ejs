@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Payroll Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header class="dashboard-header">
+        <h1>Employee Details</h1>
+        <div class="header-actions">
+            <input type="text" placeholder="🔍 Search..." class="search-box">
+            <a href="/add" class="btn add-user">➕ Add User</a>
+        </div>
+    </header>
+
+    <!-- Summary Boxes -->
+    <div class="summary-boxes">
+        <% const totalEmployees=employees.length; const totalSalary=employees.reduce((sum, emp)=> sum + emp.salary, 0);
+            const avgSalary = totalEmployees > 0 ? (totalSalary / totalEmployees).toFixed(2) : 0;
+            const maxSalary = totalEmployees > 0 ? Math.max(...employees.map(emp => emp.salary)) : 0;
+            %>
+            <div class="summary-box">
+                <h2>
+                    <%= totalEmployees %>
+                </h2>
+                <p>Total Employees</p>
+            </div>
+            <div class="summary-box">
+                <h2>₹<%= totalSalary %>
+                </h2>
+                <p>Total Salary</p>
+            </div>
+            <div class="summary-box">
+                <h2>₹<%= avgSalary %>
+                </h2>
+                <p>Average Salary</p>
+            </div>
+            <div class="summary-box">
+                <h2>₹<%= maxSalary %>
+                </h2>
+                <p>Highest Salary</p>
+            </div>
+    </div>
+
+    <!-- Employee Table -->
+    <table class="employee-table">
+        <thead>
+            <tr>
+                <th>Profile</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Start Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% employees.forEach(emp=> { %>
+                <tr>
+                    <td><img src="/img/<%= emp.profile %>" class="profile-pic"></td>
+                    <td>
+                        <%= emp.name %>
+                    </td>
+                    <td>
+                        <%= emp.gender %>
+                    </td>
+                    <td>
+                        <%= Array.isArray(emp.department) ? emp.department.join(" ") : emp.department %></td>
+          <td>₹<%= emp.salary %></td>
+          <td>
+            <% const [day, month, year] = emp.startDate.split('-'); 
+               const months = [" Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]; %>
+                            <%= day %>
+                                <%= months[parseInt(month)-1] %>
+                                    <%= year %>
+                    </td>
+                    <td>
+                        <a href="/edit/<%= emp.id %>" class="btn edit">✏️</a>
+                        <a href="/delete/<%= emp.id %>" class="btn delete">🗑️</a>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+</body>
+
+</html>

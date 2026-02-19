@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h1>Add Employee</h1>
+
+    <form method="POST" action="/add" class="employee-form">
+        <label>Name:</label>
+        <input type="text" name="name" required>
+
+        <!-- Profile Images Horizontal -->
+        <label>Profile Image:</label>
+        <div class="horizontal-options profile-options">
+            <label><input type="radio" name="profile" value="img1.webp" required><img src="/img/img1.webp"></label>
+            <label><input type="radio" name="profile" value="img2.webp"><img src="/img/img2.webp"></label>
+            <label><input type="radio" name="profile" value="img3.webp"><img src="/img/img3.webp"></label>
+            <label><input type="radio" name="profile" value="img4.webp"><img src="/img/img4.webp"></label>
+            <label><input type="radio" name="profile" value="img5.webp"><img src="/img/img5.webp"></label>
+            <label><input type="radio" name="profile" value="img6.webp"><img src="/img/img6.webp"></label>
+        </div>
+
+        <!-- Gender Horizontal -->
+        <label>Gender:</label>
+        <div class="horizontal-options">
+            <label><input type="radio" name="gender" value="Male" required> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
+
+        <!-- Department Horizontal -->
+        <label>Department:</label>
+        <div class="horizontal-options">
+            <label><input type="checkbox" name="department" value="HR"> HR</label>
+            <label><input type="checkbox" name="department" value="Sales"> Sales</label>
+            <label><input type="checkbox" name="department" value="Finance"> Finance</label>
+            <label><input type="checkbox" name="department" value="Engineer"> Engineer</label>
+            <label><input type="checkbox" name="department" value="Others"> Others</label>
+        </div>
+
+        <!-- Salary Input -->
+        <label>Salary:</label>
+        <input type="number" name="salary" min="1" required>
+
+        <label>Start Date:</label>
+        <div class="horizontal-options date-options">
+            <select name="day" required>
+                <option value="">Day</option>
+                <% for(let d=1; d<=31; d++){ %>
+                    <option value="<%= d %>">
+                        <%= d %>
+                    </option>
+                    <% } %>
+            </select>
+            <select name="month" required>
+                <option value="">Month</option>
+                <% const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                    months.forEach((m,i)=>{ %>
+                    <option value="<%= i+1 %>">
+                        <%= m %>
+                    </option>
+                    <% }) %>
+            </select>
+            <select name="year" required>
+                <option value="">Year</option>
+                <% for(let y=2020; y<=2030; y++){ %>
+                    <option value="<%= y %>">
+                        <%= y %>
+                    </option>
+                    <% } %>
+            </select>
+        </div>
+
+
+        <label>Notes:</label>
+        <textarea name="notes" rows="4"></textarea>
+
+        <div class="form-buttons">
+            <button type="reset" class="btn reset">Reset</button>
+            <button type="submit" class="btn submit">Submit</button>
+            <a href="/" class="btn cancel">Cancel</a>
+        </div>
+    </form>
+</body>
+
+</html>

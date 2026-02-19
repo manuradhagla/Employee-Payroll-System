@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h1>Edit Employee</h1>
+
+    <form method="POST" action="/edit/<%= employee.id %>" class="employee-form">
+        <label>Name:</label>
+        <input type="text" name="name" value="<%= employee.name %>" required>
+
+        <!-- Profile Images Horizontal -->
+        <label>Profile Image:</label>
+        <div class="horizontal-options profile-options">
+            <label><input type="radio" name="profile" value="img1.png" <%=employee.profile==='img1.png' ? 'checked' : ''
+                    %>><img src="/img/img1.png"></label>
+            <label><input type="radio" name="profile" value="img2.png" <%=employee.profile==='img2.png' ? 'checked' : ''
+                    %>><img src="/img/img2.png"></label>
+            <label><input type="radio" name="profile" value="img3.png" <%=employee.profile==='img3.png' ? 'checked' : ''
+                    %>><img src="/img/img3.png"></label>
+            <label><input type="radio" name="profile" value="img4.png" <%=employee.profile==='img4.png' ? 'checked' : ''
+                    %>><img src="/img/img4.png"></label>
+            <label><input type="radio" name="profile" value="img5.png" <%=employee.profile==='img5.png' ? 'checked' : ''
+                    %>><img src="/img/img5.png"></label>
+        </div>
+
+        <!-- Gender Horizontal -->
+        <label>Gender:</label>
+        <div class="horizontal-options">
+            <label><input type="radio" name="gender" value="Male" <%=employee.gender==='Male' ? 'checked' : '' %>>
+                Male</label>
+            <label><input type="radio" name="gender" value="Female" <%=employee.gender==='Female' ? 'checked' : '' %>>
+                Female</label>
+        </div>
+
+        <!-- Department Horizontal -->
+        <label>Department:</label>
+        <div class="horizontal-options">
+            <label><input type="checkbox" name="department" value="HR" <%=employee.department.includes('HR') ? 'checked'
+                    : '' %>> HR</label>
+            <label><input type="checkbox" name="department" value="Sales" <%=employee.department.includes('Sales')
+                    ? 'checked' : '' %>> Sales</label>
+            <label><input type="checkbox" name="department" value="Finance" <%=employee.department.includes('Finance')
+                    ? 'checked' : '' %>> Finance</label>
+            <label><input type="checkbox" name="department" value="Engineer" <%=employee.department.includes('Engineer')
+                    ? 'checked' : '' %>> Engineer</label>
+            <label><input type="checkbox" name="department" value="Others" <%=employee.department.includes('Others')
+                    ? 'checked' : '' %>> Others</label>
+        </div>
+
+        <!-- Salary Input -->
+        <label>Salary:</label>
+        <input type="number" name="salary" value="<%= employee.salary %>" min="1" required>
+
+        <!-- Start Date Horizontal -->
+        <label>Start Date:</label>
+        <div class="horizontal-options date-options">
+            <% const [day, month, year]=employee.startDate.split('-'); %>
+                <select name="day" required>
+                    <option value="">Day</option>
+                    <% for(let d=1; d<=31; d++){ %>
+                        <option value="<%= d %>" <%=parseInt(day)===d ? 'selected' : '' %>><%= d %>
+                        </option>
+                        <% } %>
+                </select>
+                <select name="month" required>
+                    <option value="">Month</option>
+                    <% const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                        months.forEach((m,i)=>{ %>
+                        <option value="<%= i+1 %>" <%=parseInt(month)===i+1 ? 'selected' : '' %>><%= m %>
+                        </option>
+                        <% }) %>
+                </select>
+                <select name="year" required>
+                    <option value="">Year</option>
+                    <% for(let y=2020; y<=2030; y++){ %>
+                        <option value="<%= y %>" <%=parseInt(year)===y ? 'selected' : '' %>><%= y %>
+                        </option>
+                        <% } %>
+                </select>
+        </div>
+
+        <label>Notes:</label>
+        <textarea name="notes" rows="4"><%= employee.notes %></textarea>
+
+        <div class="form-buttons">
+            <button type="reset" class="btn reset">Reset</button>
+            <button type="submit" class="btn submit">Update</button>
+            <a href="/" class="btn cancel">Cancel</a>
+        </div>
+    </form>
+</body>
+
+</html>
