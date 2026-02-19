@@ -22,5 +22,17 @@
     "salary": 77000,
     "startDate": "18-7-2024",
     "notes": "rtbgjyul"
+  },
+  {
+    "id": 1771482184977,
+    "name": "Harshita",
+    "profile": "img5.webp",
+    "gender": "Female",
+    "department": [
+      "Sales"
+    ],
+    "salary": 35000,
+    "startDate": "15-10-2023",
+    "notes": "gbtn43nhny6h"
   }
 ]

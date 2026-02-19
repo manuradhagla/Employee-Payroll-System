@@ -85,6 +85,17 @@
                 <% }) %>
         </tbody>
     </table>
+    <script> 
+        const searchBox = document.querySelector('.search-box'); 
+        const tableRows = document.querySelectorAll('.employee-table tbody tr'); 
+        searchBox.addEventListener('input', function () { 
+            const query = this.value.toLowerCase(); 
+            tableRows.forEach(row => { 
+                const text = row.innerText.toLowerCase(); 
+                row.style.display = text.includes(query) ? '' : 'none'; 
+                }); 
+            });
+        </script>
 </body>
 
 </html>
