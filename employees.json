@@ -1,17 +1,5 @@
 [
   {
-    "id": 1771481703329,
-    "name": "Ananya",
-    "profile": "img3.webp",
-    "gender": "Female",
-    "department": [
-      "Engineer"
-    ],
-    "salary": 100000,
-    "startDate": "12-8-2027",
-    "notes": "efrebgbht"
-  },
-  {
     "id": 1771481730047,
     "name": "Aniket",
     "profile": "img4.webp",
@@ -34,5 +22,41 @@
     "salary": 35000,
     "startDate": "15-10-2023",
     "notes": "gbtn43nhny6h"
+  },
+  {
+    "id": 1771492072308,
+    "name": "Naveen",
+    "profile": "img4.webp",
+    "gender": "Male",
+    "department": [
+      "Finance"
+    ],
+    "salary": 34654,
+    "startDate": "18-10-2021",
+    "notes": "346thrtukt"
+  },
+  {
+    "id": 1771492740829,
+    "name": "Manuradha",
+    "profile": "img3.webp",
+    "gender": "Female",
+    "department": [
+      "Sales"
+    ],
+    "salary": 239900,
+    "startDate": "16-9-2009",
+    "notes": "346457rtdfff"
+  },
+  {
+    "id": 1771492942069,
+    "name": "Akash",
+    "profile": "img2.webp",
+    "gender": "Male",
+    "department": [
+      "Finance"
+    ],
+    "salary": 23000,
+    "startDate": "12-6-2010",
+    "notes": "wergwryyj"
   }
 ]
