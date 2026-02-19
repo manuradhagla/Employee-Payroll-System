@@ -1,14 +1,26 @@
 [
   {
-    "id": 1771437039452,
-    "name": "Manuradha Singh",
-    "profile": "img1.webp",
+    "id": 1771481703329,
+    "name": "Ananya",
+    "profile": "img3.webp",
     "gender": "Female",
     "department": [
-      "Sales"
+      "Engineer"
     ],
-    "salary": 68000,
-    "startDate": "20-11-2028",
-    "notes": "454t5"
+    "salary": 100000,
+    "startDate": "12-8-2027",
+    "notes": "efrebgbht"
+  },
+  {
+    "id": 1771481730047,
+    "name": "Aniket",
+    "profile": "img4.webp",
+    "gender": "Female",
+    "department": [
+      "Engineer"
+    ],
+    "salary": 77000,
+    "startDate": "18-7-2024",
+    "notes": "rtbgjyul"
   }
 ]
